@@ -38,9 +38,9 @@ class Flappy:
 
     def get_reward(self):
         if self.HIT:
-            return -1
+            return -100
         else:
-            return 1
+            return self.t
 
     def display_state(self):
         print("hauteur :", self.y)
