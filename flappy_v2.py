@@ -1,4 +1,5 @@
 import numpy as np
+from numpy import random
 
 class Flappy:
     def __init__(self):
@@ -28,6 +29,12 @@ class Flappy:
         if self.d_o <= 0:
             if self.H_o >= self.y or self.H_o + self. L_o <= self.y:
                 self.HIT = True
+
+            else:
+                self.d_o = random.randint(5,10)
+                self.H_o = random.rand()/2 + 0.1
+                self.L_o = 0.3
+
 
     def display_state(self):
         print("hauteur :", self.y)
