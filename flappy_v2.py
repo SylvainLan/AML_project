@@ -7,8 +7,8 @@ class Flappy:
         self.t = 0.
         self.vy = 0.
         self.d_o = 10.
-        self.H_o = 0.
-        self.L_o = 0.
+        self.H_o = random.randint()/2. + 0.1
+        self.L_o = 0.3
         self.g = 0.1
         self.HIT = False
 
@@ -32,7 +32,7 @@ class Flappy:
 
             else:
                 self.d_o = random.randint(5,10)
-                self.H_o = random.rand()/2 + 0.1
+                self.H_o = random.rand()/2. + 0.1
                 self.L_o = 0.3
 
 
@@ -41,3 +41,5 @@ class Flappy:
         print("vitesse verticale : " , self.vy)
         print("distance parcourue : ", self.t)
         print("distance au prochain obstacle : " , self.d_o)
+        print("hauteur prochain obstacle :" , self.H_o)
+        print("largeur prochain obstacle :" , self.L_o)
