@@ -4,10 +4,10 @@ from numpy import random
 class Flappy:
     def __init__(self):
         self.y = 0.5
-        self.t = 0.
+        self.t = 0
         self.vy = 0.
         self.d_o = 10.
-        self.H_o = random.rand()/2. + 0.1
+        self.H_o = random.randint(5)/10.
         self.g = 0.1
         self.HIT = False
 
