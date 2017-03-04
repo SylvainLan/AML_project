@@ -18,7 +18,7 @@ class Flappy:
             self.vy = self.g 
 #FIXME 
         
-        self.y -= self.vy
+        self.y += self.vy
 #deltaT 
         self.t += 1
         self.d_o -= 1
