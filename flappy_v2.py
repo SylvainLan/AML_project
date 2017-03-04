@@ -7,7 +7,7 @@ class Flappy:
         self.t = 0.
         self.vy = 0.
         self.d_o = 10.
-        self.H_o = random.randint()/2. + 0.1
+        self.H_o = random.rand()/2. + 0.1
         self.L_o = 0.3
         self.g = 0.1
         self.HIT = False
