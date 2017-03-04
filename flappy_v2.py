@@ -35,6 +35,8 @@ class Flappy:
                 self.H_o = random.rand()/2. + 0.1
                 self.L_o = 0.3
 
+    def get_state(self):
+        return [self.y , self.vy , self.d_o , self.H_o , self.L_o]
 
     def display_state(self):
         print("hauteur :", self.y)
