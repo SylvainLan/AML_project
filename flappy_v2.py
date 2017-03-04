@@ -6,7 +6,7 @@ class Flappy:
         self.y = 0.5
         self.t = 0.
         self.vy = 0.
-        self.d_o = np.inf
+        self.d_o = 10.
         self.H_o = 0.
         self.L_o = 0.
         self.g = 0.1
