@@ -25,7 +25,7 @@ class Environment:
     def moveBird(self , a):
         if a == 0:
             self.distance += 0.1 * theta
-            self.state[0] = -1/2*g*self.time^2 + self.y_i
+            self.state[0] = -1/2*g*self.time^2 + self.state[0]
             self.state[1] = self.time * g
             self.state[2] -= self.distance
 

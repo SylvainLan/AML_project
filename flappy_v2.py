@@ -8,7 +8,7 @@ class Flappy:
         self.d_o = np.inf
         self.H_o = 0.
         self.L_o = 0.
-        self.g = 10.
+        self.g = 0.1
         self.HIT = False
 
     def move(self , a):
