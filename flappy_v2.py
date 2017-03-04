@@ -31,10 +31,16 @@ class Flappy:
 
             else:
                 self.d_o = random.randint(5,10)
-                self.H_o = random.rand()/2. + 0.1
+                self.H_o = random.randint(5)/10.
 
     def get_state(self):
         return [self.y , self.vy , self.d_o , self.H_o]
+
+    def get_reward(self):
+        if self.HIT:
+            return -1
+        else:
+            return 1
 
     def display_state(self):
         print("hauteur :", self.y)
@@ -42,3 +48,4 @@ class Flappy:
         print("distance parcourue : ", self.t)
         print("distance au prochain obstacle : " , self.d_o)
         print("hauteur prochain obstacle :" , self.H_o)
+
