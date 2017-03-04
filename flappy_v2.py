@@ -35,3 +35,7 @@ class Flappy:
             if self.H_o >= self.y or self.H_o + self. L_o <= self.y:
                 self.HIT = True
 
+    def display_state(self):
+        print("hauteur :", self.y)
+        print("distance parcourue : ", self.t)
+        print("distance au prochain obstacle : " , self.d_o)
