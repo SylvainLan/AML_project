@@ -1,3 +1,5 @@
+import numpy as np
+
 from numpy import random
 from flappy_v2 import Flappy
 
@@ -5,7 +7,7 @@ class QLearningAgent:
 
     def __init__(self, alpha, gamma, it, epsilon):
         self.agent = Flappy()
-        self.state = self.agent.get_state()
+        self.state = tuple(self.agent.get_state())
         self.Q_ = {}
         self.alpha = alpha
         self.gamma = gamma
@@ -13,8 +15,11 @@ class QLearningAgent:
         self.t = 0
         self.epsilon = epsilon
 
-    def _reset(self):
+
+    def reset(self):
         self.agent = Flappy()
+        self.t = 0
+        
 
     def get_action(self):
         # sample action with epsilon greediness
@@ -22,9 +27,12 @@ class QLearningAgent:
             action = np.argmax(self.Q_.get(self.state, [0, 0]))
         else:
             action = random.randint(2)
+        return action
+
 
     def update(self, s, reward, action):
-        dQ = reward + self.gamma * np.max(self.Q_[s]) - self.Q_[self.state]
+        s = tuple(s)
+        dQ = reward + self.gamma * np.max(self.Q_.get(s,0)) - self.Q_.get(self.state,0)
         self.Q_[self.state] = self.Q_.get(self.state, 0) + self.alpha * dQ
         self.state_ = s
         self.t += 1

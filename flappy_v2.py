@@ -43,9 +43,9 @@ class Flappy:
             return 0
 
     def display_state(self):
-        print("hauteur :", self.y)
-        print("vitesse verticale : " , self.vy)
-        print("distance parcourue : ", self.t)
-        print("distance au prochain obstacle : " , self.d_o)
-        print("hauteur prochain obstacle :" , self.H_o)
+        print("height :", self.y)
+        print("vertical speed : " , self.vy)
+        print("distance since launch : ", self.t)
+        print("distance to next obstacle : " , self.d_o)
+        print("height next obstacle :" , self.H_o)
 
