@@ -8,7 +8,6 @@ class Flappy:
         self.vy = 0.
         self.d_o = 10.
         self.H_o = random.rand()/2. + 0.1
-        self.L_o = 0.3
         self.g = 0.1
         self.HIT = False
 
@@ -27,16 +26,15 @@ class Flappy:
         if self.y <= 0:
             self.HIT = True
         if self.d_o <= 0:
-            if self.H_o >= self.y or self.H_o + self. L_o <= self.y:
+            if self.H_o >= self.y or self.H_o + 0.3 <= self.y:
                 self.HIT = True
 
             else:
                 self.d_o = random.randint(5,10)
                 self.H_o = random.rand()/2. + 0.1
-                self.L_o = 0.3
 
     def get_state(self):
-        return [self.y , self.vy , self.d_o , self.H_o , self.L_o]
+        return [self.y , self.vy , self.d_o , self.H_o]
 
     def display_state(self):
         print("hauteur :", self.y)
@@ -44,4 +42,3 @@ class Flappy:
         print("distance parcourue : ", self.t)
         print("distance au prochain obstacle : " , self.d_o)
         print("hauteur prochain obstacle :" , self.H_o)
-        print("largeur prochain obstacle :" , self.L_o)
