@@ -40,7 +40,7 @@ class Flappy:
         if self.HIT:
             return -100
         else:
-            return self.t
+            return 0
 
     def display_state(self):
         print("hauteur :", self.y)
