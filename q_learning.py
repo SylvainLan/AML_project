@@ -1,7 +1,7 @@
 import numpy as np
 
 from numpy import random
-from flappy_v2 import Flappy
+from flappy import Flappy
 
 class QLearningAgent:
 

@@ -7,7 +7,7 @@ class Flappy:
 #FIXME random? 
         self.t = 0
         self.vy = 0.
-        self.d_o = 10.
+        self.d_o = np.inf
         self.H_o = random.randint(5)/10.
         self.g = 0.1
         self.HIT = False
@@ -17,7 +17,6 @@ class Flappy:
             self.vy -= self.g
         else:
             self.vy = self.g 
-#FIXME 
         
         self.y += self.vy
 #deltaT 
@@ -35,7 +34,8 @@ class Flappy:
                 self.H_o = random.randint(5)/10.
 
     def get_state(self):
-        return [self.y , self.vy , self.d_o , self.H_o]
+        #return [self.y , self.vy , self.d_o , self.H_o]
+        return [self.y , self.vy]
 
     def get_reward(self):
         if self.HIT:
