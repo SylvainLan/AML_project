@@ -4,7 +4,7 @@ from numpy import random
 class Flappy:
     def __init__(self):
         self.y = 0.5
-#FIXME random? 
+#FIXME random?
         self.t = 0
         self.vy = 0.
         self.d_o = np.inf
@@ -16,14 +16,14 @@ class Flappy:
         if a == 0:
             self.vy -= self.g
         else:
-            self.vy = self.g 
-        
+            self.vy = self.g
+
         self.y += self.vy
-#deltaT 
+#deltaT
         self.t += 1
         self.d_o -= 1
 
-        if self.y <= 0:
+        if 0 > self.y or 1 < self.y:
             self.HIT = True
         if self.d_o <= 0:
             if self.H_o >= self.y or self.H_o + 0.3 <= self.y:
@@ -49,4 +49,3 @@ class Flappy:
         print("distance since launch : ", self.t)
         print("distance to next obstacle : " , self.d_o)
         print("height next obstacle :" , self.H_o)
-

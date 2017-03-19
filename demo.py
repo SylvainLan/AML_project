@@ -1,9 +1,9 @@
 
-from flappy_v2 import Flappy
+from flappy import Flappy
 
 flappy = Flappy()
 
 while not flappy.HIT:
-    action = int(raw_input())
+    action = int(input())
     flappy.move(action)
-    flappy.display_state() 
+    flappy.display_state()
