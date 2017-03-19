@@ -2,15 +2,15 @@ import numpy as np
 from numpy import random
 
 class Flappy:
-    def __init__(self):
+    def __init__(self, rewards):
         self.y = 0.5
-#FIXME random?
         self.t = 0
         self.vy = 0.
         self.d_o = np.inf
         self.H_o = random.randint(5)/10.
         self.g = 0.1
         self.HIT = False
+        self.rewards = rewards
 
     def move(self , a):
         if a == 0:
@@ -39,9 +39,9 @@ class Flappy:
 
     def get_reward(self):
         if self.HIT:
-            return -100
+            return self.rewards['hit']
         else:
-            return 1
+            return self.rewards['go']
 
     def display_state(self):
         print("height :", self.y)

@@ -5,8 +5,9 @@ from flappy import Flappy
 
 class QLearningAgent:
 
-    def __init__(self, alpha, gamma, it, epsilon):
-        self.agent = Flappy()
+    def __init__(self, alpha, gamma, epsilon, rewards):
+        self.rewards = rewards
+        self.agent = Flappy(self.rewards)
         self.state = tuple(self.agent.get_state())
         self.Q = {}
         self.alpha = alpha
@@ -17,7 +18,7 @@ class QLearningAgent:
 
 
     def reset(self):
-        self.agent = Flappy()
+        self.agent = Flappy(self.rewards)
         self.t = 0
 
 
