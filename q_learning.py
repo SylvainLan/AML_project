@@ -25,6 +25,7 @@ class QLearningAgent:
         # sample action with epsilon greediness
         if np.random.random() > self.epsilon:
             action = np.argmax(self.Q_.get(self.state, [0, 0]))
+#FIXME rand for the case we were not in the state before ? 
         else:
             action = random.randint(2)
         return action

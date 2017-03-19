@@ -1,47 +1,52 @@
 import numpy as np
+from numpy import random
 
-class Environment:
-    def __init__(self, agent, args = None):
-        self.state = np.zeros(5)
-#Height ofn the bird, vertical speed of the bird, distance to next obstacle,
-#height of the obstacle, width of the obstacle
-        self.state[0] = 0.5
-#The height is between 0 and 1
-        self.state[2] = np.inf
-        self.distance = 0.
-#The distance that the bird flew, criterion to maximize
-        self.theta = self.state[0] 
-#Angle of the speed, considering the longitudinal speed is 1
-        self.time = 0.
-
-        self.v_i = 1
-        self.y_1 = 0.5
-        
-        g = 10
-#Gravitational constant
-        
+class Flappy:
+    def __init__(self):
+        self.y = 0.5
+#FIXME random? 
+        self.t = 0
+        self.vy = 0.
+        self.d_o = 10.
+        self.H_o = random.randint(5)/10.
+        self.g = 0.1
         self.HIT = False
 
-    def moveBird(self , a):
+    def move(self , a):
         if a == 0:
-            self.distance += 0.1 * theta
-            self.state[0] = -1/2*g*self.time^2 + self.state[0]
-            self.state[1] = self.time * g
-            self.state[2] -= self.distance
+            self.vy -= self.g
+        else:
+            self.vy = self.g 
+#FIXME 
+        
+        self.y += self.vy
+#deltaT 
+        self.t += 1
+        self.d_o -= 1
 
-            if self.state[0] <= 0:
-                self.HIT = True
-            if self.state[2] <= 0 and self.state[0] <= self.state[3]:
-                self.HIT = True
-            if self.state[2] <= 0 and self.state[0] >= self.state[4]:
+        if self.y <= 0:
+            self.HIT = True
+        if self.d_o <= 0:
+            if self.H_o >= self.y or self.H_o + 0.3 <= self.y:
                 self.HIT = True
 
-            if self.state[2] <= 0:
-                if np.random.uniform() < epsilon:
-                    self.state[2] = self.random.uniform(0.5,1.)
-                    self.state[3] = np.random.uniform()
-                    self.state[4] = np.random.uniform(self.state[3] , 1)
-                else:
-                    self.state[2] = np.inf
+            else:
+                self.d_o = random.randint(5,10)
+                self.H_o = random.randint(5)/10.
 
+    def get_state(self):
+        return [self.y , self.vy , self.d_o , self.H_o]
+
+    def get_reward(self):
+        if self.HIT:
+            return -100
+        else:
+            return 1
+
+    def display_state(self):
+        print("height :", self.y)
+        print("vertical speed : " , self.vy)
+        print("distance since launch : ", self.t)
+        print("distance to next obstacle : " , self.d_o)
+        print("height next obstacle :" , self.H_o)
 
